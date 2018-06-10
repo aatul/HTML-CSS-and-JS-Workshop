@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+#dz {width:150px;height:150px;padding:10px;border:1px solid #aaaaaa;}
+</style>
+    
+<script type="text/javascript">
+    var drag1 = document.getElementById("drag1");
+
+drag1.addEventListener('dragstart', dragStart, false);
+    drag1.addEventListener('dragend'  , dragEnd  , false);
+
+    var dz = document.getElementById("dz");
+
+    dz.addEventListener('dragenter', dragEnter  , false);
+    dz.addEventListener('dragover' , dragOver   , false);
+    dz.addEventListener('dragleave', dragLeave  , false);
+    dz.addEventListener('drop'     , drop       , false);
+
+
+    function dragStart(event) {
+        event.dataTransfer.effectAllowed  = document.getElementById("effectAllowed").value;
+        event.dataTransfer.dropEffect     = document.getElementById("dropEffect").value;
+
+        var dragImageUrl = document.getElementById("dragImage").value;
+
+        if(dragImageUrl != 'none') {
+            var dragImage = document.createElement('img');
+            dragImage.src = dragImageUrl;
+            dragImage.width = 75;
+            event.dataTransfer.setDragImage(dragImage, 0, 0);
+        }
+
+        event.dataTransfer.setData('text/html', "You dragged the image!");
+        event.target.style.border = "1px solid #cccccc";
+    }
+    function dragEnd(event) {
+        document.getElementById("dragendCount").innerHTML = counts.dragend++;
+        event.target.style.border = "none";
+    }
+    function dragEnter(event) {
+        document.getElementById("dragenterCount").innerHTML = counts.dragenter++;
+        event.target.style.border = "2px dashed #00cc00";
+    }
+    function dragOver(event) {
+        document.getElementById("dragoverCount").innerHTML = counts.dragover++;
+        event.preventDefault();
+    }
+    function dragLeave(event) {
+        document.getElementById("dragleaveCount").innerHTML = counts.dragleave++;
+        event.target.style.border = "1px solid #cccccc";
+    }
+    function drop(event) {
+        console.log("drop called");
+        document.getElementById("dropCount").innerHTML = counts.drop++;
+        var data = event.dataTransfer.getData('text/html');
+        event.target.style.border = "1px solid #cccccc";
+        event.preventDefault();
+    }
+
+</script>
+</head>
+<body>
+
+<p>Drag the HTML5 image into the rectangle:</p>
+<select id="effectAllowed" style="float:left;">
+    <option value="none">effectAllowed options</option>
+    <option value="none">none</option>
+    <option value="copy">copy</option>
+    <option value="copyLink">copyLink</option>
+    <option value="move">move</option>
+    <option value="copyMove">copyMove</option>
+    <option value="link">link</option>
+    <option value="linkMove">linkMove</option>
+    <option value="all">all</option>
+    <option value="uninitialized">uninitialized</option>
+</select>
+<select id="dropEffect" style="float:left;">
+    <option value="none">dropEffect options</option>
+    <option value="none">none</option>
+    <option value="copy">copy</option>
+    <option value="move">move</option>
+    <option value="link">link</option>
+</select>
+<select id="dragImage" style="float:left;">
+    <option value="none">dragImage options</option>
+    <option value="none">none</option>
+    <option value="images/Aatul.png">Icon</option>
+    <option value="images/Wallpaper.png">Some Image</option>
+</select>
+<div id="dz" ondragenter="dragEnter(event)" ondragover="dragOver(event)" ondragleave="dragLeave(event)" ondrop="drop(event)" ></div>
+<br />
+<img id="drag1" src="images/Aatul.png" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)" width="100" height="100" style="float:left;"/>
+
+</body>
+</html>

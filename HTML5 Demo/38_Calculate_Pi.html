@@ -1,0 +1,27 @@
+<html>
+<body>
+<input type="button" onclick="Calculate()" value="Calculate Pi" />
+<script type="text/javascript">
+	var c=0;
+	function Calculate()
+	{
+		var c=prompt("Enter number of cycles:","0");
+		if (c>0)
+		{
+			var Pi=0;
+			var n=1;
+			for (i=0;i<=c;i++)
+			{
+				Pi=Pi+(4/n)-(4/(n+2))
+				n=n+4
+			}
+			alert(Pi);
+		}
+		else
+		{
+			alert("Canceled or Error in input: Input must be positive.");
+		}
+	}
+</script>
+</body>
+</html>

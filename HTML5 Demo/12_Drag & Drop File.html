@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+#dz {width:150px;height:150px;padding:10px;border:1px solid #aaaaaa;}
+</style>
+    
+<script type="text/javascript">
+    function drop(event) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        var fileList = event.dataTransfer.files;        
+     }
+
+    function dragOver(evt) {
+        evt.target.style.border = "2px dashed #FF0000";
+        evt.stopPropagation();
+        evt.preventDefault();
+        evt.dataTransfer.dropEffect = 'copy';
+    }
+
+    var dz = document.getElementById("dz");
+    dz.addEventListener("dragover", dragOver, false);
+    dz.addEventListener("drop"    , drop    , false);
+    
+    // Read File
+    function readFiles(event) {
+        var fileList = event.target.files;
+
+        for(var i=0; i < fileList.length; i++ ) {
+            loadAsText(fileList[i]);
+        }
+    }
+
+    function loadAsText(theFile) {
+        var reader = new FileReader();
+
+        reader.onload = function(loadedEvent) {
+            // result contains loaded file.
+            console.log(loadedEvent.target.result);
+        }
+        reader.readAsText(theFile);
+    }
+    
+    function loadAsTextSlice(theFile) {
+        var start = 3;
+        var stop  = 9;
+        var blob = theFile.slice(start, stop);
+
+        var reader = new FileReader();
+        reader.onload = function(loadedEvent) {
+            console.log(loadedEvent.target.result);
+        }
+        reader.readAsText(blob);
+    }
+    
+    function loadAsUrl(theFile) {
+        var reader = new FileReader();
+
+        reader.onload = function(loadedEvent) {
+            var image = document.getElementById("theImage");
+            image.setAttribute("src", loadedEvent.target.result);
+        }
+    reader.readAsDataURL(theFile);
+    }
+</script>
+</head>
+<body>
+<p>Drag a file into the rectangle:</p>
+<div id="dz" ondragover="dragOver(event)" ondrop="drop(event)" ></div>
+<br />
+
+<input type="file" onchange="readFiles(event)" multiple>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+  <script type="text/javascript">
+    localStorage.clear();
+
+    // Reset number of hits.
+    if( localStorage.hits ){
+       localStorage.hits = Number(localStorage.hits) +1;
+    }else{
+       localStorage.hits = 1;
+    }
+    document.write("Total Hits :" + localStorage.hits );
+  </script>
+  <p>Refreshing the page would not to increase hit counter.</p>
+  <p>Close the window and open it again and check the result.</p>
+
+</body>
+</html>

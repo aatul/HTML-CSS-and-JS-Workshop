@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Fibonacci Numbers Using JavaScript</title>
+		<script>
+			function on_btn_gen_click() {
+				count = parseInt(document.getElementById("inCount").value);
+				a = 0, b = 1, sum = 0;
+				output = "<b>The first " + count + " elements in the Fibonacci series:</b> ";
+
+				for(i = 0; i < count; i ++) {
+					output += a + " ";
+					sum = a + b;
+					a = b;
+					b = sum;
+				}
+
+				document.getElementById("pSeries").innerHTML = output;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Fibonacci Numbers Using JavaScript</h1>
+		Enter the count of terms: <input id="inCount" />
+		<button id="btnGen" onclick="on_btn_gen_click()">Generate</button>
+		<p id="pSeries" />
+	</body>
+</html>

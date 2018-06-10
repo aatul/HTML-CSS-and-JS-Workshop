@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+		.animate{
+		  animation-duration: 5s;
+		  -webkit-animation-duration: 10s;
+		  animation-name: slidein;
+		  -webkit-animation-name: slidein;
+		}
+
+		@-webkit-keyframes slidein {
+			  0% {
+			    margin-left: 0%;
+			    width: 300%
+			  }
+
+			  50% {
+			    margin-left: 90%;
+			    width: 100%
+			  }		  
+			 
+			  100% {
+			    margin-left: 0%;
+			    width: 300%;
+			  }
+		}
+	</style>
+</head>
+<body>
+	<div id="animate" class="animate">
+		div for animation
+	</div>
+</body>
+</html>

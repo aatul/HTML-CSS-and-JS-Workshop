@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+<title>Selector sample</title>
+</head><body>
+<button id="buttonSelectFirstOddRow" type="button" onclick="buttonSelectFirstOddRow_click()">Select First Odd Row</button>
+<button id="buttonSelectFirstEvenRow" type="button" onclick="buttonSelectFirstEvenRow_click()">Select First Even Row</button>
+<button id="buttonSelectAllOddRows" type="button" onclick="buttonSelectAllOddRows_click()">Select All Odd Row</button>
+<button id="buttonSelectAllEvenRows" type="button" onclick="buttonSelectAllEvenRows_click()">Select All Even Row</button>
+<button id="buttonSelectAllRows" type="button" onclick="buttonSelectAllRows_click()">Select All Rows</button>
+    <article>
+        <header>
+            <h1>Selector API sample</h1>
+            <p>Demo showing how to use HTML5 selector API</p>
+        </header>
+	<ul id="dataList">
+		<li class="odd" style="color: red;">Odd 1</li>
+		<li class="even" style="color: rgb(255, 192, 203);">Even 1</li>
+		<li class="odd" style="color: rgb(255, 192, 203);">Odd 2</li>
+		<li class="even" style="color: rgb(255, 192, 203);">Even 2</li>
+		<li class="odd" style="color: rgb(255, 192, 203);">Odd 3</li>
+	</ul>      
+        <footer>
+            <h1></h1>
+            <p>Selection API</p>
+        </footer>
+    </article>
+    <script type="text/javascript">
+    	function buttonSelectFirstOddRow_click()
+    	{      	
+		var selectedRow = document.querySelector('li.odd');
+		selectedRow.style.color = 'Red';
+    	}
+    	function buttonSelectFirstEvenRow_click()
+    	{
+		var selectedRow = document.querySelector('li.even');
+		selectedRow.style.color = 'Green';
+    	}
+	function buttonSelectAllOddRows_click()
+    	{
+		var selectedRows = document.querySelectorAll('li.odd');
+		for (var i = 0; i < selectedRows.length; i++)
+			selectedRows[i].style.color = 'Red';
+    	}
+	function buttonSelectAllEvenRows_click()
+    	{
+		var selectedRows = document.querySelectorAll('li.even');
+		for (var i = 0; i < selectedRows.length; i++)
+			selectedRows[i].style.color = 'Green';
+    	}
+	function buttonSelectAllRows_click()
+    	{
+		var selectedRows = document.querySelectorAll('li.odd, li.even');
+		for (var i = 0; i < selectedRows.length; i++)
+			selectedRows[i].style.color = 'Pink';
+    	}
+    </script>
+</body></html>

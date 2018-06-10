@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>JavaScript Digital Clock</title>
+        <style>
+            body {
+                text-align: center;
+            }
+        
+            #pTime {
+                font-family: monospace;
+                font-weight: bold;
+                font-size: 2em;
+            }
+        </style>
+        <script>
+            var pTime;
+            
+            function onEachSecond() {
+                date = new Date();
+                pTime.innerHTML = date.toLocaleTimeString();
+            }
+            
+            function onLoaded() {
+                pTime = document.getElementById("pTime");
+                setInterval(onEachSecond, 1000);
+                onEachSecond();
+            }
+        </script>
+    </head>
+    
+    <body onload="onLoaded()">
+        <h1>JavaScript Digital Clock</h1>
+        <p id="pTime" />
+    </body>
+</html>

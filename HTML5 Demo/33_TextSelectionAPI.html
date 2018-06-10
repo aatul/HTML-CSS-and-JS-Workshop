@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+function txtSelectOld()
+{
+	var input = document.getElementById("name");
+	    input.select();
+}
+
+function txtSelectNew()
+{
+	var input = document.getElementById("name");
+    input.selectionStart = 2;
+    input.selectionEnd = 10;
+}
+</script>
+</head>
+<body>
+ 
+<label for="name">Name: </label>
+ <input type="text" id="name" value="Text selection :HTML5"/>
+<button onclick="txtSelectOld()">Select</button>
+<button onclick="txtSelectNew()">Select</button>
+ 
+</body>
+</html>

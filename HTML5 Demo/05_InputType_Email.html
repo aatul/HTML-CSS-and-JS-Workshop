@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<script>
+
+function check(input) {
+if(input.validity.typeMismatch){
+input.setCustomValidity(input.value + " is not a valid email. Enter a valid email!!");
+}
+else {
+ input.setCustomValidity("");
+    }
+}
+</script>
+
+<form  action="second.jsp" method="get" >
+E-mail: <input type="email" name="user_email" oninput="check(this)" required="true"/> <br>
+
+URL : <input type="url" name="url" ><br/>
+
+Search:<input type="search"  /><br/>
+
+Color picker:<input type="color"/><br/>
+
+Telephone Number : <input type="tel"/><br/>
+
+<input type="submit" formmethod="post" formaction="first.jsp" />
+</form>
+</body>
+</html>

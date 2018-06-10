@@ -1,0 +1,29 @@
+<html>
+    <head>
+	<title>Web App for Simple Interest Calculation</title>
+
+        <script>
+            function calculate()
+            {
+                p = document.getElementById("p").value;
+                n = document.getElementById("n").value;
+                r = document.getElementById("r").value;
+                result = document.getElementById("result");
+                
+                result.innerHTML = "The interest is " + (p*n*r/100);
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Simple Interest Calculation</h1>
+
+        Amount: <input id="p"><br/>
+        Rate: <input id="r"><br/>
+        No. of Years: <input id="n"><br/>
+
+        <button onclick="calculate()">Calculate</button>
+
+        <p id="result"></p>
+    </body>
+</html>
