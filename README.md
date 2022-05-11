@@ -21,6 +21,7 @@ Regards.
 
 Follow me on:
 - Blog : http://aatul.me
+- LinkedIn : https://in.linkedin.com/in/atulpalandurkar
 - Facebook : https://facebook.com/aatulpalandurkar
 - Instagram : https://instagram.com/aatulpalandurkar
 - YouTube : https://www.youtube.com/user/AtulPalandurkar?sub_confirmation=1
